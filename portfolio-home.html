@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sanskar Shivaji Bangar | ML &amp; AI Engineer Aspirant</title>
+<meta name="description" content="Portfolio of Sanskar Shivaji Bangar, B.Tech Electrical Engineering student at VJTI, focused on Machine Learning, Deep Learning, NLP and Computer Vision. Author of The Modern Career Blueprint.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f17; --surface: #121823; --surface-2: #171f2e; --border: #232d3f;
+    --text: #e6eaf2; --muted: #94a0b4; --accent: #5eead4;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .label { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(11,15,23,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding-top: env(safe-area-inset-top, 0px); }
+  .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  .nav .name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+  .nav nav { display: flex; gap: 22px; }
+  .nav nav a { color: var(--muted); font-size: 0.9rem; }
+  .nav nav a:hover { color: var(--text); text-decoration: none; }
+
+  .hero { padding: 96px 0 72px; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-top: 14px; }
+  .hero .role { margin-top: 12px; font-size: 1.15rem; color: var(--muted); }
+  .hero .intro { margin-top: 22px; max-width: 620px; color: var(--muted); }
+  .pills { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { font-family: var(--mono); font-size: 0.78rem; padding: 5px 11px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--surface); }
+  .pill.book { color: var(--accent); border-color: rgba(94,234,212,0.35); }
+  .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { padding: 10px 18px; border-radius: 8px; font-size: 0.92rem; font-weight: 500; border: 1px solid var(--border); color: var(--text); background: var(--surface); cursor: pointer; font-family: inherit; }
+  .btn:hover { border-color: var(--accent); text-decoration: none; }
+  .btn.primary { background: var(--accent); color: #04211c; border-color: var(--accent); font-weight: 600; }
+  .btn.primary:hover { color: #04211c; opacity: 0.92; }
+
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  .heading { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; margin: 10px 0 28px; }
+  .about p { color: var(--muted); max-width: 680px; }
+  .about p + p { margin-top: 14px; }
+
+  .project { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 18px; }
+  .project.featured { border-color: rgba(94,234,212,0.35); }
+  .project h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; }
+  .project .meta { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+  .project p.summary { margin-top: 14px; color: var(--muted); }
+  .stack { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack span { font-family: var(--mono); font-size: 0.76rem; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); padding: 4px 9px; border-radius: 6px; }
+  .project .actions { margin-top: 18px; }
+  details { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; }
+  summary { cursor: pointer; font-size: 0.9rem; color: var(--accent); list-style: none; font-weight: 500; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "+ "; font-family: var(--mono); }
+  details[open] summary::before { content: "− "; }
+  .case { margin-top: 16px; display: grid; gap: 14px; }
+  .case h4 { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin-bottom: 4px; }
+  .case p, .case li { color: var(--text); font-size: 0.95rem; }
+  .case ul { padding-left: 18px; }
+  .case li { margin-bottom: 4px; }
+
+  .resume-wrap iframe { width: 100%; height: 1100px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
+  .resume-note { margin-top: 12px; color: var(--muted); font-size: 0.85rem; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .skill-group h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; }
+  .skill-group .stack { margin-top: 0; }
+  .strengths { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
+
+  /* Clickable rows (certificates, education) */
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px 14px; margin: 0 -14px; border-bottom: 1px solid var(--border); border-radius: 8px; color: var(--text); transition: background .15s; }
+  .row:last-child { border-bottom: none; }
+  .row.click { cursor: pointer; }
+  .row.click:hover { background: var(--surface); text-decoration: none; }
+  .row .title { font-weight: 500; }
+  .row .sub { color: var(--muted); font-size: 0.92rem; }
+  .row .date { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+  .row .view { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); border: 1px solid rgba(94,234,212,0.35); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+
+  .contact p { color: var(--muted); max-width: 580px; }
+  .links { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Viewer modal */
+  .viewer { position: fixed; inset: 0; z-index: 100; background: rgba(4,7,12,0.88); display: none; align-items: center; justify-content: center; padding: 20px; }
+  .viewer.open { display: flex; }
+  .viewer-box { width: min(980px, 100%); height: min(90vh, 900px); background: var(--surface); border: 1px solid var(--border); border-radius: 14px; display: flex; flex-direction: column; overflow: hidden; }
+  .viewer-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .viewer-title { font-weight: 500; font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .viewer-tools { display: flex; gap: 8px; flex-shrink: 0; }
+  .viewer-tools a, .viewer-tools button { font-family: var(--mono); font-size: 0.75rem; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+  .viewer-tools a:hover, .viewer-tools button:hover { border-color: var(--accent); text-decoration: none; }
+  .viewer-body { flex: 1; min-height: 0; background: #0f141e; display: flex; align-items: center; justify-content: center; }
+  .viewer-body iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+  .viewer-body img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .viewer-msg { color: var(--muted); padding: 24px; text-align: center; font-size: 0.92rem; }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 0 calc(28px + env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: 0.85rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 640px) {
+    .nav nav { display: none; }
+    .hero { padding: 64px 0 52px; }
+    .project { padding: 22px; }
+    .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .resume-wrap iframe { height: 620px; }
+    .viewer { padding: 8px; }
+    .viewer-box { height: 92vh; }
+    .viewer-title { font-size: 0.85rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="name">Sanskar Bangar</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="label">ML &amp; AI Engineer Aspirant</div>
+      <h1>Sanskar Shivaji Bangar</h1>
+      <p class="role">B.Tech Electrical Engineering, VJTI Mumbai</p>
+      <p class="intro">
+        I build machine learning and engineering projects, from sensor-based hardware prototypes
+        to automation workflows and an authored career guide on data and AI. Currently looking for an
+        ML/AI internship or entry-level role.
+      </p>
+      <div class="pills">
+        <span class="pill">Machine Learning</span>
+        <span class="pill">Deep Learning</span>
+        <span class="pill">NLP</span>
+        <span class="pill">Computer Vision</span>
+        <span class="pill">Python</span>
+        <span class="pill">SQL</span>
+        <a class="pill book" href="web-book-preview.pdf" data-file="web-book-preview.pdf" data-title="The Modern Career Blueprint (Preview)">Author: The Modern Career Blueprint</a>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="mailto:sanskarbangar72@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/sanskar-bangar-8194833a5" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/sanskarbangar18" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="label">About</div>
+      <h2 class="heading">Who I am</h2>
+      <p>
+        I am a B.Tech Electrical Engineering student at VJTI (Veermata Jijabai Technological Institute), Mumbai, India.
+        I am interested in data analytics, artificial intelligence, and the ways technical and business skills can be
+        combined to create career opportunities.
+      </p>
+      <p>
+        I wrote <em>The Modern Career Blueprint</em> as a practical guide for students, graduates, and professionals who want
+        to build future-ready skills, understand how modern organisations work, and use data and AI to solve meaningful problems.
+      </p>
+      <p><strong>Languages:</strong> English, Hindi, Marathi.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="label">Projects</div>
+      <h2 class="heading">Selected work</h2>
+
+      <article class="project featured">
+        <h3>The Modern Career Blueprint</h3>
+        <div class="meta">eBook · 2026 · Author</div>
+        <p class="summary">A 115-page career guide on business, data analytics, and AI for students and professionals who want to build future-ready skills.</p>
+        <div class="stack"><span>Excel</span><span>SQL</span><span>Python</span><span>Power BI</span><span>AI Productivity</span><span>Business Fundamentals</span></div>
+        <div class="actions">
+          <a class="btn" href="web-book-preview.pdf" data-file="web-book-preview.pdf" data-title="The Modern Career Blueprint (Preview)">View book preview</a>
+        </div>
+        <details>
+          <summary>Case study</summary>
+          <div class="case">
+            <div>
+              <h4>Problem</h4>
+              <p>Many beginners lack a clear path from business and technical fundamentals to a job-ready portfolio.</p>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <ul>
+                <li>Covered the modern career landscape, business basics (revenue, costs, KPIs), and the skills employers look for.</li>
+                <li>Taught data analytics step by step: Excel, SQL, Python with pandas, and Power BI dashboards.</li>
+                <li>Explained responsible AI use, prompting, and verification, and how automation changes work.</li>
+                <li>Guided readers through portfolio building, resume and LinkedIn, interviews, freelancing, and a 30-day action plan.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Result</h4>
+              <p>Completed a 115-page guide with 19 chapters across five parts, six practical projects, a glossary, and a project completion checklist.</p>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="project">
+        <h3>Transmission Line Fault Detection Model</h3>
+        <div class="meta">May 2024 – Jul 2024 · Hardware prototype</div>
+        <p class="summary">A working prototype that detects faults on a transmission line and switches the connected load through a relay.</p>
+        <div class="stack"><span>Flame Sensor</span><span>Relay Module</span><span>AC Bulbs</span><span>PVC Model</span></div>
+        <details>
+          <summary>Case study</summary>
+          <div class="case">
+            <div>
+              <h4>Problem</h4>
+              <p>Detect a fault condition on a transmission line and respond to it automatically.</p>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <ul>
+                <li>Integrated a flame sensor with a relay module to sense the fault condition.</li>
+                <li>Used the relay to switch the connected AC bulb load based on the sensor signal.</li>
+                <li>Assembled the circuit wiring and a PVC transmission-line model for testing.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Result</h4>
+              <p>Demonstrated sensor-driven fault identification and relay-based switching on the prototype, which gave hands-on experience in sensor interfacing and circuit design.</p>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="project">
+        <h3>Automatic Temperature Controlled Fan (Arduino Uno)</h3>
+        <div class="meta">Academic project · Tinkercad simulation · VJTI</div>
+        <p class="summary">A simulated embedded system that reads temperature with a TMP36 sensor and switches a DC fan on at 30 °C and above.</p>
+        <div class="stack"><span>Arduino Uno</span><span>TMP36</span><span>NPN Transistor</span><span>DC Motor</span><span>Embedded C++</span><span>Serial Monitor</span></div>
+        <div class="actions">
+          <a class="btn" href="web-project-report.pdf" data-file="web-project-report.pdf" data-title="Automatic Temperature Controlled Fan: Project Report">View project report</a>
+        </div>
+        <details>
+          <summary>Case study</summary>
+          <div class="case">
+            <div>
+              <h4>Problem</h4>
+              <p>Cooling fans that run continuously waste energy and make unnecessary noise, while manual switching is inefficient.</p>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <ul>
+                <li>Read the TMP36 analog output on pin A0 and converted it to degrees Celsius in code: (voltage - 0.5) x 100.</li>
+                <li>Compared the reading with a 30 °C threshold every second, driving pin 3 HIGH (fan ON) or LOW (fan OFF) through an NPN transistor.</li>
+                <li>Printed live temperature to the Serial Monitor at 9600 baud to observe the behaviour.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Result</h4>
+              <p>Verified in Tinkercad simulation: the fan stayed OFF at 24.78 °C and switched ON at 30.16 °C, with readings matching the expected voltage-to-temperature conversion.</p>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="project">
+        <h3>Sales Data Analysis Project</h3>
+        <div class="meta">Academic project · Data analysis</div>
+        <p class="summary">Analysis of sample sales data using Excel and Google Sheets, with charts, summaries, and insights.</p>
+        <div class="stack"><span>MS Excel</span><span>Google Sheets</span><span>Pivot Tables</span><span>AI Tools</span></div>
+        <details>
+          <summary>Case study</summary>
+          <div class="case">
+            <div>
+              <h4>Problem</h4>
+              <p>Analyse sample sales data and present the findings clearly.</p>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <ul>
+                <li>Organised and cleaned the sales data in Excel and Google Sheets.</li>
+                <li>Built Pivot Tables, charts, and summaries, and used AI tools to help draw basic insights.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Result</h4>
+              <p>Improved data organisation and reporting accuracy.</p>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="project">
+        <h3>Google – GitHub Workflow Automation</h3>
+        <div class="meta">Workflow automation</div>
+        <p class="summary">An automation workflow that connects Google tools with GitHub to reduce repetitive manual update tasks.</p>
+        <div class="stack"><span>Google Workspace</span><span>Git</span><span>GitHub</span></div>
+        <details>
+          <summary>Case study</summary>
+          <div class="case">
+            <div>
+              <h4>Problem</h4>
+              <p>Repetitive manual updates between project files and documentation.</p>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <ul>
+                <li>Connected Google tools with GitHub to automate update steps.</li>
+                <li>Applied Git and GitHub version control to organise, track, and maintain project files and changes.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Result</h4>
+              <p>Designed to reduce repetitive manual update tasks through a reusable workflow.</p>
+            </div>
+          </div>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <section id="resume">
+    <div class="wrap">
+      <div class="label">Resume</div>
+      <h2 class="heading">Resume</h2>
+      <div class="actions" style="margin-top:0;margin-bottom:20px">
+        <a class="btn primary" href="web-resume.pdf" target="_blank" rel="noopener">Open full screen</a>
+        <a class="btn" href="web-resume.pdf" download>Download PDF</a>
+      </div>
+      <div class="resume-wrap">
+        <iframe src="web-resume.pdf#view=FitH" title="Sanskar Bangar Resume"></iframe>
+      </div>
+      <p class="resume-note">If the preview does not load on your device, use "Open full screen".</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="label">Skills</div>
+      <h2 class="heading">Technical toolkit</h2>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <div class="stack"><span>Python</span><span>SQL</span><span>C++</span><span>MATLAB</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Machine Learning &amp; AI</h3>
+          <div class="stack"><span>Machine Learning</span><span>Deep Learning</span><span>NLP</span><span>Computer Vision</span><span>Scikit-learn</span><span>TensorFlow</span><span>PyTorch</span><span>Generative AI</span><span>AI Prompting</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Data Analytics</h3>
+          <div class="stack"><span>Data Analysis</span><span>Data Cleaning</span><span>Pivot Tables</span><span>Data Visualisation</span><span>Report Writing</span><span>Excel</span><span>Google Sheets</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; Platforms</h3>
+          <div class="stack"><span>Git</span><span>GitHub</span><span>Jupyter</span><span>Docker</span><span>Firebase</span><span>Netlify</span><span>Canva</span><span>AutoCAD</span></div>
+        </div>
+      </div>
+      <p class="strengths"><strong>Core strengths:</strong> Communication, Team Collaboration, Analytical Thinking, Problem Solving, Time Management.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="label">Education</div>
+      <h2 class="heading">Academic background</h2>
+      <div class="row">
+        <div>
+          <div class="title">B.Tech, Electrical Engineering</div>
+          <div class="sub">Veermata Jijabai Technological Institute (VJTI), Mumbai · CGPA 6.11 (current)</div>
+        </div>
+        <div class="date">Expected 2028</div>
+      </div>
+      <div class="row">
+        <div><div class="title">Class XII: 60.63% · Class X: 75%</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS: each row opens its certificate in the viewer -->
+  <section id="certifications">
+    <div class="wrap">
+      <div class="label">Certifications</div>
+      <h2 class="heading">Certifications &amp; job simulations</h2>
+      <p class="resume-note" style="margin-top:-18px;margin-bottom:22px">Click any certificate to view it.</p>
+
+      <a class="row click" href="cert-01-genai-data-analytics-tata.pdf" data-file="cert-01-genai-data-analytics-tata.pdf" data-title="GenAI Powered Data Analytics Job Simulation"><div><div class="title">GenAI Powered Data Analytics Job Simulation</div><div class="sub">Tata (Forage)</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Aug 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-02-cybersecurity-analyst-tata.pdf" data-file="cert-02-cybersecurity-analyst-tata.pdf" data-title="Cybersecurity Analyst Job Simulation"><div><div class="title">Cybersecurity Analyst Job Simulation</div><div class="sub">Tata (Forage)</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Sep 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-03-data-visualisation-tata.pdf" data-file="cert-03-data-visualisation-tata.pdf" data-title="Data Visualisation: Empowering Business with Effective Insights"><div><div class="title">Data Visualisation: Empowering Business with Effective Insights</div><div class="sub">Tata (Forage)</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Oct 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-04-ai-in-action-vista.pdf" data-file="cert-04-ai-in-action-vista.pdf" data-title="AI in Action Job Simulation"><div><div class="title">AI in Action Job Simulation</div><div class="sub">Vista (Forage)</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Oct 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-05-tech-explorer-commonwealth-bank.pdf" data-file="cert-05-tech-explorer-commonwealth-bank.pdf" data-title="Tech Explorer Job Simulation"><div><div class="title">Tech Explorer Job Simulation</div><div class="sub">Commonwealth Bank (Forage)</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Oct 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-06-ai-tools-chatgpt-be10x.pdf" data-file="cert-06-ai-tools-chatgpt-be10x.pdf" data-title="AI Tools &amp; ChatGPT Workshop"><div><div class="title">AI Tools &amp; ChatGPT Workshop</div><div class="sub">be10x</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Jan 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-07-yuva-ai-for-all-tcs.pdf" data-file="cert-07-yuva-ai-for-all-tcs.pdf" data-title="YUVA AI For All"><div><div class="title">YUVA AI For All</div><div class="sub">TCS iON</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Jan 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-08-career-edge-it-primer-tcs.pdf" data-file="cert-08-career-edge-it-primer-tcs.pdf" data-title="Career Edge: IT Primer"><div><div class="title">Career Edge: IT Primer</div><div class="sub">TCS iON</div></div><div style="display:flex;gap:10px;align-items:center"><span class="date">Dec 2025 – Jan 2026</span><span class="view">VIEW</span></div></a>
+      <a class="row click" href="cert-09-mmgeis-esri.pdf" data-file="cert-09-mmgeis-esri.pdf" data-title="MMGEIS Registration Program"><div><div class="title">MMGEIS Registration Program</div><div class="sub">Esri India</div></div><div style="display:flex;gap:10px;align-items:center"><span class="view">VIEW</span></div></a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="label">Contact</div>
+      <h2 class="heading">Let's connect</h2>
+      <p>Open to ML/AI internships and entry-level roles. The fastest way to reach me is email.</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:sanskarbangar72@gmail.com">sanskarbangar72@gmail.com</a>
+        <a class="btn" href="tel:+917249022205">+91 7249022205</a>
+        <a class="btn" href="https://www.linkedin.com/in/sanskar-bangar-8194833a5" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/sanskarbangar18" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Sanskar Shivaji Bangar</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+
+<!-- Viewer modal for certificates, book preview -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
+  <div class="viewer-box">
+    <div class="viewer-head">
+      <div class="viewer-title" id="viewer-title"></div>
+      <div class="viewer-tools">
+        <a id="viewer-open" href="#" target="_blank" rel="noopener">Open</a>
+        <a id="viewer-download" href="#" download>Download</a>
+        <button type="button" id="viewer-close" aria-label="Close">Close ✕</button>
+      </div>
+    </div>
+    <div class="viewer-body" id="viewer-body"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var viewer = document.getElementById('viewer');
+  var body = document.getElementById('viewer-body');
+  var title = document.getElementById('viewer-title');
+  var openLink = document.getElementById('viewer-open');
+  var dlLink = document.getElementById('viewer-download');
+
+  function isImage(path) { return /\.(png|jpe?g|webp|gif)$/i.test(path); }
+
+  function openViewer(file, name) {
+    title.textContent = name || file;
+    openLink.href = file;
+    dlLink.href = file;
+    dlLink.setAttribute('download', file.split('/').pop());
+    body.innerHTML = '';
+
+    viewer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Check the file exists first, so a missing file shows a clear message
+    // instead of a blank frame. (Skipped when opened from file://.)
+    if (location.protocol === 'file:') {
+      renderLocal(file, name);
+      return;
+    }
+    fetch(file, { method: 'HEAD' }).then(function (res) {
+      if (res.ok) { renderLocal(file, name); } else { showMissing(); }
+    }).catch(showMissing);
+  }
+
+  function renderLocal(file, name) {
+    body.innerHTML = '';
+    if (isImage(file)) {
+      var img = new Image();
+      img.alt = name || '';
+      img.onerror = showMissing;
+      img.src = file;
+      body.appendChild(img);
+    } else {
+      var frame = document.createElement('iframe');
+      frame.src = file + '#view=FitH';
+      frame.title = name || file;
+      body.appendChild(frame);
+    }
+  }
+
+  function showMissing() {
+    body.innerHTML = '<div class="viewer-msg">This file is not available yet. Please check back soon.</div>';
+  }
+
+  function closeViewer() {
+    viewer.classList.remove('open');
+    body.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-file]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      openViewer(el.getAttribute('data-file'), el.getAttribute('data-title'));
+    });
+  });
+
+  document.getElementById('viewer-close').addEventListener('click', closeViewer);
+  viewer.addEventListener('click', function (e) { if (e.target === viewer) closeViewer(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && viewer.classList.contains('open')) closeViewer(); });
+})();
+</script>
+
+</body>
+</html>
